@@ -2,10 +2,10 @@
 #include <X11/XF86keysym.h>
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 4;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappx     = 5;        /* gaps between windows */ 
+static const unsigned int snap      = 32;       /* snap pixel */ 
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 4;        /* 2 is the default spacing around the bar's font */
 static const char *fonts[]          = { "MononokiNerdFont-Regular:size=12" };
 static const char dmenufont[]       = "MononokiNerdFond-Regular:size=12";
@@ -15,13 +15,19 @@ static const char nord[] 	    = "#2e3440";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+static const char black[]	    = "#0a0a0a";
+static const char white[]	    = "#ffffff";
+static const char grey[]	    = "#212121";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray2,  col_cyan  },
-	[SchemeTitle] = { col_gray4, col_gray1, col_gray2 },
+//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { white, black, col_gray2 },
+//	[SchemeSel]  = { col_gray4, col_gray2,  col_cyan  },
+	[SchemeSel]  = { white, grey,  white },
+//	[SchemeTitle] = { col_gray4, col_gray1, col_gray2 },
+	[SchemeTitle] = { white, black, col_gray2 },
 };
 static const unsigned int alphas[][3]      = {
     /*               fg      bg        border*/
@@ -41,6 +47,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	
+	{ "Ulauncher",     NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -70,9 +78,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *firefox[]  = { "firefox", NULL };
+static const char *dmenucmd[]  = { "rofi","-show","drun","-show-icons", NULL };
+static const char *firefox[]  = { "vivaldi", NULL };
 static const char *nautilus[]  = { "nautilus", NULL };
 
 // Function Commands
@@ -127,6 +136,9 @@ static const Key keys[] = {
 	{ 0,				XF86XK_MonBrightnessDown,	spawn, SHCMD("$HOME/suckless/slstatus/scripts/bndec.sh") },
 	{ 0, 				XK_Print,			spawn,	SHCMD("flameshot gui") },
 	{ MODKEY,			XK_v, 				spawn, SHCMD("copyq menu") },
+//	{ MODKEY,			XK_l, 				spawn, SHCMD("xset dpms force off") },
+
+
 };
 
 /* button definitions */
