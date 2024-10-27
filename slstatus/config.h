@@ -66,14 +66,15 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{ cpu_perc, "|   %s%% |", NULL},
+	{ run_command, "   %s |" , "/home/sk/suckless/slstatus/scripts/temp.sh" },
 	{ ram_perc, "   %s%% |", NULL},
 	{ battery_perc, " 󰁿 %s", "BAT1" },
 	{ battery_state, "%s", "BAT1" },
 	{ battery_remaining, "%s |", "BAT1"},
-	{ run_command, "  %s", "~/suckless/slstatus/scripts/volume.sh" },
-	{ run_command, "%s" , "~/suckless/slstatus/scripts/ismuted.sh" },
-	{ run_command, "%s |" , "~/suckless/slstatus/scripts/ismic.sh" },
-	{ run_command, " 󰃞 %s%% |" , "~/suckless/slstatus/scripts/bn.sh" },
+	{ run_command, "  %s", "/home/sk/suckless/slstatus/scripts/volume.sh" },
+	{ run_command, "%s" , "/home/sk/suckless/slstatus/scripts/ismuted.sh" },
+	{ run_command, "%s |" , "/home/sk/suckless/slstatus/scripts/ismic.sh" },
+	{ run_command, " 󰃞 %s%% |" , "/home/sk/suckless/slstatus/scripts/bn.sh" },
 	
 	{ datetime, " %s |",           "%a %d %b %l:%M %p" },
 };
