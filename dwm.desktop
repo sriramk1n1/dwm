@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=DWM
+Comment=A Suckless WM
+Exec=start_dwm
+Terminal=false
+TryExec=start_dwm
+Type=Application
+
+[X-Window Manager]
+SessionManaged=true
+
